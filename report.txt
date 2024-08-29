@@ -1,0 +1,65 @@
+Documentation for Flask Application
+Overview
+This Flask application is designed to accept file uploads (PDF and text files) and text input from a user, process the text to extract specific information using regular expressions, and then display the extracted information in a structured JSON format.
+
+Components:
+
+Flask Application Setup
+File Handling
+Text Extraction
+Text Cleaning
+Information Extraction
+HTML Templates
+Code Explanation
+
+1. Flask Application Setup:
+Flask: A micro web framework used to create web applications.
+request: Used to handle HTTP requests.
+render_template: Renders HTML templates.
+io, json, re, PyPDF2: Libraries for handling I/O operations, JSON data, regular expressions, and PDF files.
+
+2. File Handling:
+ALLOWED_EXTENSIONS: A set of allowed file extensions.
+allowed_file: Function to check if a file's extension is allowed.
+
+3. Text Extraction
+Extract Text from PDF
+extract_text_from_pdf: Reads and extracts text from a PDF file.
+
+4. Text Cleaning:
+clean_text: Converts text to lowercase, normalizes whitespace, and removes non-alphanumeric characters.
+
+5. Information Extraction:
+extract_information: Uses regex patterns to extract relevant information from the cleaned text.
+
+6. HTML Templates
+index.html
+result.html 
+will accept files and display result as json
+
+RESULT (eg.):
+{
+    "CustomerRequirements": {
+        "CarType": "suv",
+        "FuelType": "diesel",
+        "Color": "blue",
+        "DistanceTravelled": "300 km",
+        "MakeYear": null,
+        "TransmissionType": "manual"
+    },
+    "CompanyPoliciesDiscussed": {
+        "FreeRCTransfer": null,
+        "5DayMoneyBackGuarantee": null,
+        "FreeRSAForOneYear": null,
+        "ReturnPolicy": "return policy"
+    },
+    "CustomerObjections": {
+        "RefurbishmentQuality": null,
+        "CarIssues": null,
+        "PriceIssues": "cost",
+        "CustomerExperienceIssues": {
+            "LongWaitTime": null,
+            "SalespersonBehavior": null
+        }
+    }
+}
